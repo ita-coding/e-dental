@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -197,4 +198,182 @@
   </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROFILE</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'League Gothic', 'Arial Narrow', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      min-height: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: 1700px;
+      height: 686px;
+      background-color: #ffffff;
+      overflow: hidden;
+    }
+
+    /* Organic Organic Left Shape (SVG Overlay) */
+    .shape-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 600px;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    /* Back Arrow Button */
+    .back-button {
+      position: absolute;
+      top: 50px;
+      left: 60px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .back-button svg {
+      width: 64px;
+      height: 64px;
+      fill: #000000;
+    }
+
+    /* Right Side Profile Details */
+    .content-area {
+      position: absolute;
+      top: 80px;
+      left: 750px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .profile-title {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-size: 80px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      color: #000000;
+      text-transform:none;
+      margin-bottom: 60px;
+    }
+
+    .info-table {
+      display: grid;
+      grid-template-columns: 200px 300px;
+      row-gap: 32px;
+      font-size: 38px;
+      color: #000000;
+      letter-spacing: 1px;
+    }
+
+    .label {
+      font-weight: 400;
+    }
+
+    .value {
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="canvas-container">
+    <!-- SVG Vector matching the exact organic curved left banner -->
+    <svg class="shape-overlay" viewBox="0 0 600 1024" preserveAspectRatio="none">
+      <path d="M 0,0 
+               L 500,0 
+               C 560,80 570,180 480,260 
+               C 400,330 520,440 450,530 
+               C 390,610 500,720 420,830 
+               C 360,910 520,980 480,1024 
+               L 0,1024 Z" 
+            fill="#c46200" />
+    </svg>
+
+    <!-- Arrow Icon -->
+     <a href="Susu Log in Landing after .html">
+      <button class="back-button" aria-label="Go Back">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 544 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-434.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"/>
+        </svg>
+      </button>
+    </a>
+
+    <!-- Details Section -->
+    <div class="content-area">
+      <h1 class="profile-title">PROFILE</h1>
+
+      <div class="info-table">
+        <span class="label">Username:</span>
+        <span class="value">User123</span>
+
+        <span class="label">Password:</span>
+        <span class="value" id="passwordField"></span>
+
+        <span class="label">Name:</span>
+        <span class="value" id="getName">Name</span>
+
+        <span class="label">Gender:</span>
+        <span class="value" id="getGender">Gender</span>
+
+        <span class="label">Address:</span>
+        <span class="value" id="getAddress">Address</span>
+
+        <span class="label">Age:</span>
+        <span class="value" id="getAge">Age</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const name = urlParams.get('name')
+    const gender = urlParams.get('gender')
+    const age = urlParams.get('age')
+    const address = urlParams.get('address')
+
+    document.getElementById('getName'). innerText = name;
+    document.getElementById('getGender'). innerText = gender;
+    document.getElementById('getAge'). innerText = age;
+    document.getElementById('getAddress'). innerText = address;
+    
+    (function generatePasswordImmeadiately() {
+      const length =16;
+      const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      let password = "";
+
+      const randomValues = new Uint32Array(length);
+      window.crypto.getRandomValues(randomValues);
+
+      for (let i = 0; i < length; i++) {
+        password += charset[randomValues[i] % charset.length];
+      }
+
+      document.getElementById("passwordField").textContent = password;
+    })();
+
+  </script>
+
+</body>
+>>>>>>> e28e8337c7b43f183ba759c3018ef12074465bb9
 </html>
