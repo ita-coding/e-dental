@@ -1,4 +1,4 @@
-<!DOCTY1PE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@
 
     body {
       background-color: #f5f5f5;
-      min-height: 10px;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,7 +22,7 @@
 
     .canvas-container {
       position: relative;
-      width: 1700px;
+      width: min(1700px, 100%);
       height: 710px;
       background-color: #ffffff;
       overflow: hidden;
@@ -91,6 +91,78 @@
     .value {
       font-weight: 400;
     }
+
+@media (max-width: 1100px) {
+    .canvas-container {
+      width: 100%;
+      min-height: 100vh;
+      height: auto;
+    }
+
+    .shape-overlay {
+      width: 40%;
+      height: 100%;
+    }
+
+    .back-button {
+      top: clamp(20px, 5vw, 50px);
+      left: clamp(20px, 5vw, 60px);
+    }
+
+    .back-button svg {
+      width: clamp(36px, 6vw, 56px);
+      height: auto;
+    }
+
+    .content-area {
+      top: clamp(100px, 14vh, 150px);
+      left: 43%;
+      right: 5%;
+      width: 52%;
+    }
+
+    .profile-title {
+      font-size: clamp(44px, 7vw, 70px);
+      margin-bottom: clamp(30px, 6vh, 55px);
+    }
+
+    .info-table {
+      width: 100%;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+      row-gap: clamp(16px, 3vh, 28px);
+      font-size: clamp(20px, 3.1vw, 32px);
+    }
+
+    .label,
+    .value {
+      overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 600px) {
+    .shape-overlay {
+      width: 36%;
+    }
+
+    .content-area {
+      left: 38%;
+      right: 4%;
+      width: 58%;
+    }
+
+    .profile-title {
+      font-size: clamp(38px, 10vw, 52px);
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+    }
+
+    .info-table {
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+      column-gap: 8px;
+      row-gap: 20px;
+      font-size: clamp(16px, 4.2vw, 20px);
+    }
+}
 
 @media (max-width:  900px){
     .services{grid-template-columns: repeat(2,1fr);}
